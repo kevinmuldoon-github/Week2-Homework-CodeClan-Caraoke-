@@ -8,15 +8,15 @@ from classes.song import Song
 class TestRoom(unittest.TestCase):
 
     def setUp(self):
-        # Define Rooms
-        self.room_1 = Room("The Fancy Room")
-        self.room_2 = Room("The Cheap Room")
-        self.room_3 = Room("The Loud Room")
-        # Define Quests
-        self.guest_1 = Guest("Colonel Mustard")
-        self.guest_2 = Guest("Mrs Peacock")
-        self.guest_3 = Guest("Professor Plum")
-        # Define Songs
+        # Define room name, capacity and fee
+        self.room_1 = Room("The Fancy Room", 1, 30)
+        self.room_2 = Room("The Cheap Room", 2, 10)
+        self.room_3 = Room("The Loud Room", 0, 15)
+        # Define guests
+        self.guest_1 = Guest("Colonel Mustard", 20)
+        self.guest_2 = Guest("Mrs Peacock", 10)
+        self.guest_3 = Guest("Professor Plum", 9)
+        # Define songs
         self.song_1 = Song ("Space Oddity")
         self.song_2 = Song ("Comfortably Numb")
         self.song_3 = Song ("When the Music's Over")
@@ -33,6 +33,8 @@ class TestRoom(unittest.TestCase):
         self.assertEqual("Colonel Mustard", self.room_1.room_guests[0])
         self.assertEqual("Mrs Peacock", self.room_1.room_guests[1])
         self.assertEqual("Professor Plum", self.room_2.room_guests[0])
+
+    # Question for Instructors: How can we check for an "list index out of range" error without breaking a test?
 
     def test_check_guest_out_of_room(self):
         # Test 1
@@ -58,5 +60,20 @@ class TestRoom(unittest.TestCase):
         # self.room_1.remove_song_from_room(self.song_1) # Add Space Oddity to Room 1
         # self.assertEqual("Space Oddity", self.room_1.room_songs[0]) # Correctly produces "IndexError: list index out of range"
 
+    def test_check_guest_into_room_verify_capacity(self):
+        self.room_1.check_guest_into_room_verify_capacity(self.guest_1) # Add Colonel Mustard to Room 1
+        self.room_1.check_guest_into_room_verify_capacity(self.guest_2) # Add Mrs Peacock to Room 1 too
+        self.room_1.check_guest_into_room_verify_capacity(self.guest_3) # Add Professor Plum to Room 1 too
+        self.room_2.check_guest_into_room_verify_capacity(self.guest_1) # Add Colonel Mustard to Room 1
+        self.room_2.check_guest_into_room_verify_capacity(self.guest_2) # Add Mrs Peacock to Room 1 too
+        self.room_2.check_guest_into_room_verify_capacity(self.guest_3) # Add Professor Plum to Room 1 too
 
-
+    def test_check_guest_has_sufficient_funds(self):
+        self.room_1.check_guest_has_sufficient_funds(self.guest_1)
+        self.room_2.check_guest_has_sufficient_funds(self.guest_2)
+        self.room_3.check_guest_has_sufficient_funds(self.guest_3)
+    
+    def test_check_guest_into_room_verify_funds_and_capacity(self):
+        self.room_1.check_guest_into_room_verify_funds_and_capacity(self.guest_1)
+        self.room_2.check_guest_into_room_verify_funds_and_capacity(self.guest_2)
+        self.room_3.check_guest_into_room_verify_funds_and_capacity(self.guest_3)
