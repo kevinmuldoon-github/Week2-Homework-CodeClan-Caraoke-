@@ -1,12 +1,10 @@
 # guest_test.py - Testing my guest.py file.
 
 import unittest
-from classes.room import Room
 from classes.guest import Guest
-from classes.song import Song
 
 class TestGuest(unittest.TestCase):
-
+    # Define room name, capacity, room fee and maximum amount of drinks available
     def setUp(self):
         self.guest_1 = Guest("Colonel Mustard", 16, 20, "Space Oddity", 5)
         self.guest_2 = Guest("Mrs Peacock", 21, 10, "Stairway to Heaven", 3)
