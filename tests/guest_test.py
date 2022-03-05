@@ -8,9 +8,9 @@ from classes.song import Song
 class TestGuest(unittest.TestCase):
 
     def setUp(self):
-        self.guest_1 = Guest("Colonel Mustard", 20)
-        self.guest_2 = Guest("Mrs Peacock", 10)
-        self.guest_3 = Guest("Professor Plum", 50)
+        self.guest_1 = Guest("Colonel Mustard", 20, "Space Oddity", 5)
+        self.guest_2 = Guest("Mrs Peacock", 10, "Stairway to Heaven", 3)
+        self.guest_3 = Guest("Professor Plum", 9, "Love Spreads Around", 8)
 
     def test_guests_have_name(self):
         self.assertEqual("Colonel Mustard", self.guest_1.guest_name)
@@ -20,4 +20,4 @@ class TestGuest(unittest.TestCase):
     def test_guests_have_wallet(self):
         self.assertEqual(20, self.guest_1.guest_wallet)
         self.assertEqual(10, self.guest_2.guest_wallet)
-        self.assertEqual(50, self.guest_3.guest_wallet)
+        self.assertEqual(9, self.guest_3.guest_wallet)
