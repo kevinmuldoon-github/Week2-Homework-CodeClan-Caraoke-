@@ -53,11 +53,11 @@ class Room:
     
     # Method to add a song to a room
     def add_song_to_room(self, song):
-        self.room_songs.append(song.song_name)
+        self.room_songs.append(song.song_details["Name"])
 
     # Method to remove a song from a room
     def remove_song_from_room(self, song):
-        self.room_songs.remove(song.song_name)
+        self.room_songs.remove(song.song_details["Name"])
     
     # Method to check if favourite song is playing
     def check_favourite_song_in_room_playlist(self, guest):

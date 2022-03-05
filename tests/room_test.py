@@ -18,10 +18,10 @@ class TestRoom(unittest.TestCase):
         self.guest_2 = Guest("Mrs Peacock", 10, "Stairway to Heaven", 3)
         self.guest_3 = Guest("Professor Plum", 9, "Love Spreads Around", 8)
 
-        # Define songs
-        self.song_1 = Song ("Space Oddity")
-        self.song_2 = Song ("Comfortably Numb")
-        self.song_3 = Song ("When the Music's Over")
+        # Define songs using dictionary
+        self.song_1 = Song({"Name" : "Space Oddity", "Year of Release" : 1969, "Band" : "David Bowie"})
+        self.song_2 = Song({"Name" : "Comfortably Numb", "Year of Release" : 1979, "Band": "Pink Floyd"})
+        self.song_3 = Song({"Name" : "When the Music's Over", "Year of Release" : 1967, "Band": "The Doors"})
 
     def test_rooms_have_name(self):
         self.assertEqual("The Fancy Room", self.room_1.room_name)
