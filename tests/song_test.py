@@ -1,8 +1,6 @@
 # song_test.py - Testing my song.py file.
 
 import unittest
-from classes.room import Room
-from classes.guest import Guest
 from classes.song import Song
 
 
