@@ -13,10 +13,10 @@ class TestRoom(unittest.TestCase):
         self.room_2 = Room("The Cheap Room", 2, 10, 7)
         self.room_3 = Room("The Loud Room", 0, 15, 11)
 
-        # Define guest name, money in wallet, favourite song and desired number of drinks
-        self.guest_1 = Guest("Colonel Mustard", 20, "Space Oddity", 5)
-        self.guest_2 = Guest("Mrs Peacock", 10, "Stairway to Heaven", 3)
-        self.guest_3 = Guest("Professor Plum", 9, "Love Spreads Around", 8)
+        # Define guest name, guest age, money in wallet, favourite song and desired number of drinks
+        self.guest_1 = Guest("Colonel Mustard", 16, 20, "Space Oddity", 5)
+        self.guest_2 = Guest("Mrs Peacock", 21, 10, "Stairway to Heaven", 3)
+        self.guest_3 = Guest("Professor Plum", 54, 9, "Love Spreads Around", 8)
 
         # Define songs using dictionary
         self.song_1 = Song({"Name" : "Space Oddity", "Year of Release" : 1969, "Band" : "David Bowie"})

@@ -66,7 +66,9 @@ class Room:
     
     # Method to update beers drunk
     def drink_a_beer(self,guest):
-        if self.beers_drunk < self.bar_capacity:
+        if guest.guest_age < 18:
+            print(f"Sorry {guest.guest_name}, we cannot serve you alcohol.")
+        elif self.beers_drunk < self.bar_capacity:
             self.beers_drunk += guest.guest_number_of_drinks
 
     # Method to check bar capacity
